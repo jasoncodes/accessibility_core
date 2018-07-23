@@ -19,6 +19,10 @@ static ID rate_fast;
 static ID rate_zomg;
 
 
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wgnu-zero-variadic-macro-arguments"
+
+
 static
 VALUE
 handle_error(VALUE self, const AXError code)
@@ -840,3 +844,5 @@ Init_core()
   rb_define_method(rb_cElement, "==",                        rb_acore_equality,                 1);
 
 }
+
+#pragma clang diagnostic pop

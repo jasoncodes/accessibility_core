@@ -45,6 +45,10 @@ ID sel_to_s;
 ID sel_parse;
 
 
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wgnu-zero-variadic-macro-arguments"
+
+
 VALUE
 wrap_unknown(CFTypeRef const obj)
 {
@@ -828,3 +832,7 @@ Init_bridge()
     rb_define_method(rb_cString, "to_data", rb_str_to_data, 0);
     rb_define_method(rb_cObject, "spin", rb_spin, -1); // semi-private method
 }
+
+#pragma clang diagnostic pop
+
+

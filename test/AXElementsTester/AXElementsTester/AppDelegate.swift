@@ -28,7 +28,7 @@ class AppDelegate : NSObject, NSApplicationDelegate {
         let attrs : NSArray = self.window!.accessibilityAttributeNames() as NSArray
         attrs.enumerateObjects({ (name, _, _) in
             let value : NSObject? =
-                self.window!.accessibilityAttributeValue(name as! String) as? NSObject
+                self.window!.accessibilityAttributeValue(name as! NSAccessibilityAttributeName) as? NSObject
             let row : TableRow =
                 TableRow(init_name: name as! String, init_value: value?.description)
             
@@ -37,8 +37,8 @@ class AppDelegate : NSObject, NSApplicationDelegate {
     }
 
     func set_identifiers() {
-        self.yes_button!.identifier = "I'm a little teapot"
-        self.scroll_area!.identifier = "Text Area"
+        self.yes_button!.identifier = NSUserInterfaceItemIdentifier(rawValue: "I'm a little teapot")
+        self.scroll_area!.identifier = NSUserInterfaceItemIdentifier(rawValue: "Text Area")
     }
 
     func populate_menu() {
@@ -51,7 +51,7 @@ class AppDelegate : NSObject, NSApplicationDelegate {
     }
 
     @IBAction func post_notification(_ : AnyObject) {
-        NSAccessibilityPostNotification(yes_button!.cell!, "Cheezburger")
+        NSAccessibilityPostNotification(yes_button!.cell!, NSAccessibilityNotificationName(rawValue: "Cheezburger"))
         (self.window!.contentView!).addSubview(bye_button!)
     }
 
@@ -60,7 +60,7 @@ class AppDelegate : NSObject, NSApplicationDelegate {
     }
 
     @IBAction func orderFrontPreferencesPanel(_ : AnyObject) {
-        let prefs = PrefPaneController(windowNibName: "PrefPane")
+        let prefs = PrefPaneController(windowNibName: NSNib.Name(rawValue: "PrefPane"))
         prefs.loadWindow()
         prefs.showWindow(self)
     }

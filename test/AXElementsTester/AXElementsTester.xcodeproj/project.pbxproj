@@ -21,13 +21,18 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		192B8E9B21239D73002A5677 /* AXElementsTester-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "AXElementsTester-Info.plist"; sourceTree = "<group>"; };
+		192B8EBD2123A046002A5677 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		192B8EBF2123A047002A5677 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		192B8EC22123A047002A5677 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		192B8EC42123A047002A5677 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		192B8EC52123A047002A5677 /* AXElementsTester2.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AXElementsTester2.entitlements; sourceTree = "<group>"; };
 		AF18897319F4B2FC00E66FC2 /* TesterArrayController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TesterArrayController.swift; sourceTree = "<group>"; };
 		AF18897519F4BB4F00E66FC2 /* TesterWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TesterWindow.swift; sourceTree = "<group>"; };
 		AF18897719F531B600E66FC2 /* TableRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableRow.swift; sourceTree = "<group>"; };
 		AF1889A419F55BFF00E66FC2 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		AF48AEA213B6E9ED0018BFA6 /* AXElementsTester.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AXElementsTester.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF48AEA613B6E9ED0018BFA6 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
-		AF48AEAF13B6E9ED0018BFA6 /* AXElementsTester-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "AXElementsTester-Info.plist"; sourceTree = "<group>"; };
 		AF48AEB113B6E9ED0018BFA6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		AF48AEB313B6E9ED0018BFA6 /* AXElementsTester-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AXElementsTester-Prefix.pch"; sourceTree = "<group>"; };
 		AF48AEB813B6E9EE0018BFA6 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
@@ -50,10 +55,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		192B8EBC2123A046002A5677 /* AXElementsTester2 */ = {
+			isa = PBXGroup;
+			children = (
+				192B8EBD2123A046002A5677 /* AppDelegate.swift */,
+				192B8EBF2123A047002A5677 /* Assets.xcassets */,
+				192B8EC12123A047002A5677 /* MainMenu.xib */,
+				192B8EC42123A047002A5677 /* Info.plist */,
+				192B8EC52123A047002A5677 /* AXElementsTester2.entitlements */,
+			);
+			path = AXElementsTester2;
+			sourceTree = "<group>";
+		};
 		AF48AE9713B6E9ED0018BFA6 = {
 			isa = PBXGroup;
 			children = (
 				AF48AEAD13B6E9ED0018BFA6 /* AXElementsTester */,
+				192B8EBC2123A046002A5677 /* AXElementsTester2 */,
 				AF48AEA513B6E9ED0018BFA6 /* Frameworks */,
 				AF48AEA313B6E9ED0018BFA6 /* Products */,
 			);
@@ -93,7 +111,7 @@
 		AF48AEAE13B6E9ED0018BFA6 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				AF48AEAF13B6E9ED0018BFA6 /* AXElementsTester-Info.plist */,
+				192B8E9B21239D73002A5677 /* AXElementsTester-Info.plist */,
 				AF48AEB013B6E9ED0018BFA6 /* InfoPlist.strings */,
 				AF48AEB313B6E9ED0018BFA6 /* AXElementsTester-Prefix.pch */,
 			);
@@ -136,11 +154,12 @@
 		AF48AE9913B6E9ED0018BFA6 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0820;
+				LastSwiftUpdateCheck = 0940;
+				LastUpgradeCheck = 0940;
 				ORGANIZATIONNAME = "Marketcircle Incorporated";
 				TargetAttributes = {
 					AF48AEA113B6E9ED0018BFA6 = {
-						LastSwiftMigration = 0820;
+						LastSwiftMigration = 0940;
 					};
 				};
 			};
@@ -150,6 +169,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = AF48AE9713B6E9ED0018BFA6;
 			productRefGroup = AF48AEA313B6E9ED0018BFA6 /* Products */;
@@ -191,6 +211,14 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		192B8EC12123A047002A5677 /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				192B8EC22123A047002A5677 /* Base */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
 		AF48AEB013B6E9ED0018BFA6 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -229,12 +257,20 @@
 		AF48AEBF13B6E9EE0018BFA6 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -264,12 +300,20 @@
 		AF48AEC013B6E9EE0018BFA6 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -297,6 +341,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -313,7 +358,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.marketcircle.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 				VALID_ARCHS = x86_64;
 				WRAPPER_EXTENSION = app;
 			};
@@ -324,6 +369,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -339,7 +385,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.marketcircle.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 				VALID_ARCHS = x86_64;
 				WRAPPER_EXTENSION = app;
 			};

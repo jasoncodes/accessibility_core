@@ -62,7 +62,7 @@ CFTypeRef
 unwrap_unknown(const VALUE obj)
 {
   // TODO: rb_check_convert_type instead?
-  VALUE obj_string = rb_funcall(obj, sel_to_s, 0);
+  VALUE obj_string = rb_funcall2(obj, sel_to_s, 0, NULL);
   rb_raise(rb_eRuntimeError,
 	   "accessibility-core doesn't know how to unwrap `%s'",
 	   StringValuePtr(obj_string));
@@ -79,7 +79,7 @@ wrap_point(const CGPoint point)
 CGPoint
 unwrap_point(const VALUE point)
 {
-    const  VALUE p = rb_funcall(point, sel_to_point, 0);
+    const  VALUE p = rb_funcall2(point, sel_to_point, 0, NULL);
     const double x = NUM2DBL(rb_struct_getmember(p, sel_x));
     const double y = NUM2DBL(rb_struct_getmember(p, sel_y));
     return CGPointMake(x, y);
@@ -95,7 +95,7 @@ wrap_size(const CGSize size)
 CGSize
 unwrap_size(const VALUE size)
 {
-    const  VALUE      s = rb_funcall(size, sel_to_size, 0);
+    const  VALUE      s = rb_funcall2(size, sel_to_size, 0, NULL);
     const double width  = NUM2DBL(rb_struct_getmember(s, sel_width));
     const double height = NUM2DBL(rb_struct_getmember(s, sel_height));
     return CGSizeMake(width, height);
@@ -114,13 +114,13 @@ wrap_rect(const CGRect rect)
 VALUE
 coerce_to_rect(const VALUE obj)
 {
-  return rb_funcall(obj, sel_to_rect, 0);
+  return rb_funcall2(obj, sel_to_rect, 0, NULL);
 }
 
 CGRect
 unwrap_rect(const VALUE rect)
 {
-    const   VALUE      r = rb_funcall(rect, sel_to_rect, 0);
+    const   VALUE      r = rb_funcall2(rect, sel_to_rect, 0, NULL);
     const CGPoint origin = unwrap_point(rb_struct_getmember(r, sel_origin));
     const CGSize    size = unwrap_size(rb_struct_getmember(r, sel_size));
     return CGRectMake(origin.x, origin.y, size.width, size.height);
@@ -475,7 +475,7 @@ CFURLRef
 unwrap_url(const VALUE url)
 {
   // TODO: should also force encoding to UTF-8 first?
-    VALUE url_string = rb_funcall(url, sel_to_s, 0);
+    VALUE url_string = rb_funcall2(url, sel_to_s, 0, NULL);
     CFStringRef const string =
         CFStringCreateWithCString(NULL,
                                   StringValuePtr(url_string),

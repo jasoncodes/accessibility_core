@@ -182,7 +182,7 @@ rb_acore_set_key_rate(VALUE self, VALUE rate)
       rb_raise(rb_eArgError, "Unknown rate `%s'", rb_id2name(key_rate));
   }
   else {
-    rate = rb_funcall(rate, sel_to_f, 0);
+    rate = rb_funcall2(rate, sel_to_f, 0, NULL);
   }
 
   return rb_ivar_set(self, ivar_key_rate, rate);

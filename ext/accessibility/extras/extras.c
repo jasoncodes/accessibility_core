@@ -282,6 +282,7 @@ rb_workspace_find(VALUE self, VALUE query)
   return (result ? Qtrue : Qfalse);
 }
 
+#ifndef MAC_OS_X_VERSION_10_11
 /*
  * @todo One thing we want to look into is using Launch Services instead of
  *       NSWorkspace for app launching. The reason is that we will avoid the
@@ -309,6 +310,7 @@ rb_workspace_launch(VALUE self, VALUE bundle_id, VALUE opts)
   [identifier release];
   return result ? Qtrue : Qfalse;
 }
+#endif
 
 
 static
@@ -753,7 +755,9 @@ Init_extras()
   rb_define_singleton_method(rb_cWorkspace, "frontmostApplication",            rb_workspace_frontmost_app,  0);
   rb_define_singleton_method(rb_cWorkspace, "menuBarOwningApplication",        rb_workspace_menu_bar_owner, 0);
   rb_define_singleton_method(rb_cWorkspace, "showSearchResultsForQueryString", rb_workspace_find,           1);
+#ifndef MAC_OS_X_VERSION_10_11
   rb_define_singleton_method(rb_cWorkspace, "launchAppWithBundleIdentifier",   rb_workspace_launch,         2);
+#endif
 
   key_opts         = ID2SYM(rb_intern("options"));
   //  key_event_params = ID2SYM(rb_intern("additionalEventParamDescriptor"));

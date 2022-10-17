@@ -165,6 +165,7 @@ convert_rb_range(const VALUE range)
 #define WRAP_VALUE(type, cookie, wrapper)                       \
     type st;                                                    \
     const Boolean result = AXValueGetValue(value, cookie, &st);	\
+    _Pragma("unused (result)");                                 \
     assert(result);                                             \
     return wrapper(st);
 

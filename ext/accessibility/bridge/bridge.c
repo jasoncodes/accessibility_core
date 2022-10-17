@@ -21,7 +21,7 @@ spin(const double seconds)
 }
 
 
-VALUE rb_cData;
+VALUE rb_cNSData;
 VALUE rb_cAttributedString;
 VALUE rb_mAccessibility;
 VALUE rb_cElement;
@@ -617,7 +617,7 @@ to_ax(const VALUE obj)
         return unwrap_value_range(obj);
     else if (type == rb_cAttributedString)
         return unwrap_attributed_string(obj);
-    else if (type == rb_cData)
+    else if (type == rb_cNSData)
         return unwrap_data(obj);
 
     if (rb_obj_is_kind_of(obj, rb_cURI))
@@ -637,7 +637,7 @@ wrap_data(CFDataRef const data)
 VALUE
 wrap_nsdata(NSData* const obj)
 {
-  WRAP_OBJC(rb_cData, objc_finalizer);
+  WRAP_OBJC(rb_cNSData, objc_finalizer);
 }
 
 VALUE wrap_array_data(CFArrayRef const array) { WRAP_ARRAY(wrap_data); }
@@ -689,7 +689,7 @@ static
 VALUE
 rb_data_equality(const VALUE self, const VALUE other)
 {
-  OBJC_EQUALITY(rb_cData, unwrap_nsdata);
+  OBJC_EQUALITY(rb_cNSData, unwrap_nsdata);
 }
 
 static
@@ -807,25 +807,25 @@ Init_bridge()
      * See [Apple's Developer Reference](https://developer.apple.com/library/mac/#documentation/Cocoa/Reference/Foundation/Classes/NSData_Class/Reference/Reference.html)
      * for documentation on the methods available in this class.
      */
-    rb_cData = rb_define_class("NSData", rb_cObject);
+    rb_cNSData = rb_define_class("NSData", rb_cObject);
 
     // TODO: implement commented out methods
-    rb_define_singleton_method(rb_cData, "data", rb_data_data, 0);
-    //rb_define_singleton_method(rb_cData, "dataWithBytes", rb_data_with_bytes, 2);
-    //rb_define_singleton_method(rb_cData, "dataWithContentsOfFile", rb_data_with_contents_of_file, 1);
-    rb_define_singleton_method(rb_cData, "dataWithContentsOfURL", rb_data_with_contents_of_url, 1);
-    //rb_define_singleton_method(rb_cData, "dataWithData", rb_data_with_data, 1);
+    rb_define_singleton_method(rb_cNSData, "data", rb_data_data, 0);
+    //rb_define_singleton_method(rb_cNSData, "dataWithBytes", rb_data_with_bytes, 2);
+    //rb_define_singleton_method(rb_cNSData, "dataWithContentsOfFile", rb_data_with_contents_of_file, 1);
+    rb_define_singleton_method(rb_cNSData, "dataWithContentsOfURL", rb_data_with_contents_of_url, 1);
+    //rb_define_singleton_method(rb_cNSData, "dataWithData", rb_data_with_data, 1);
 
-    //rb_define_method(rb_cData, "bytes",            rb_data_bytes, 0);
-    //rb_define_method(rb_cData, "description",      rb_data_description, 0);
-    //rb_define_method(rb_cData, "subdataWithRange", rb_data_subrange, 1);
-    rb_define_method(rb_cData, "isEqualToData",    rb_data_equality, 1);
-    rb_define_method(rb_cData, "length",           rb_data_length, 0);
-    rb_define_method(rb_cData, "writeToFile",      rb_data_write_to_file, -1);
-    //rb_define_method(rb_cData, "writeToURL",       rb_data_write_to_url, -1);
-    rb_define_method(rb_cData, "to_str",           rb_data_to_str, 0);
+    //rb_define_method(rb_cNSData, "bytes",            rb_data_bytes, 0);
+    //rb_define_method(rb_cNSData, "description",      rb_data_description, 0);
+    //rb_define_method(rb_cNSData, "subdataWithRange", rb_data_subrange, 1);
+    rb_define_method(rb_cNSData, "isEqualToData",    rb_data_equality, 1);
+    rb_define_method(rb_cNSData, "length",           rb_data_length, 0);
+    rb_define_method(rb_cNSData, "writeToFile",      rb_data_write_to_file, -1);
+    //rb_define_method(rb_cNSData, "writeToURL",       rb_data_write_to_url, -1);
+    rb_define_method(rb_cNSData, "to_str",           rb_data_to_str, 0);
 
-    rb_define_alias(rb_cData,  "==", "isEqualToData");
+    rb_define_alias(rb_cNSData,  "==", "isEqualToData");
 
 
     // misc freedom patches

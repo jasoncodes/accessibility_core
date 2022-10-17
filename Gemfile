@@ -4,4 +4,5 @@ gemspec
 group :development do
   gem 'yard'
   gem 'kramdown'
+  gem 'rake'
 end

@@ -189,7 +189,7 @@ wrap_value(AXValueRef const value)
 {
     switch (AXValueGetType(value)) {
     case kAXValueTypeIllegal:
-        rb_raise(rb_eArgError, "cannot wrap %s objects", rb_class2name(CLASS_OF(value)));
+        rb_raise(rb_eArgError, "cannot wrap unsupported type");
     case kAXValueTypeCGPoint:
         return wrap_value_point(value);
     case kAXValueTypeCGSize:

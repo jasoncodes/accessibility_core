@@ -765,20 +765,19 @@ Init_extras()
 
 #define WORKSPACE_CONST(str, val) rb_define_const(rb_cWorkspace, str, INT2FIX(val));
   if (!rb_const_defined_at(rb_cWorkspace, rb_intern("NSWorkspaceLaunchAndPrint"))) {
+#ifndef MAC_OS_X_VERSION_10_11
     WORKSPACE_CONST("NSWorkspaceLaunchAndPrint",                 NSWorkspaceLaunchAndPrint);
     WORKSPACE_CONST("NSWorkspaceLaunchInhibitingBackgroundOnly", NSWorkspaceLaunchInhibitingBackgroundOnly);
     WORKSPACE_CONST("NSWorkspaceLaunchWithoutAddingToRecents",   NSWorkspaceLaunchWithoutAddingToRecents);
     WORKSPACE_CONST("NSWorkspaceLaunchWithoutActivation",        NSWorkspaceLaunchWithoutActivation);
     WORKSPACE_CONST("NSWorkspaceLaunchAsync",                    NSWorkspaceLaunchAsync);
-    //Classic workspace settings deprecated in 10.11
-#ifndef MAC_OS_X_VERSION_10_11
     WORKSPACE_CONST("NSWorkspaceLaunchAllowingClassicStartup",   NSWorkspaceLaunchAllowingClassicStartup);
     WORKSPACE_CONST("NSWorkspaceLaunchPreferringClassic",        NSWorkspaceLaunchPreferringClassic);
-#endif
     WORKSPACE_CONST("NSWorkspaceLaunchNewInstance",              NSWorkspaceLaunchNewInstance);
     WORKSPACE_CONST("NSWorkspaceLaunchAndHide",                  NSWorkspaceLaunchAndHide);
     WORKSPACE_CONST("NSWorkspaceLaunchAndHideOthers",            NSWorkspaceLaunchAndHideOthers);
     WORKSPACE_CONST("NSWorkspaceLaunchDefault",                  NSWorkspaceLaunchDefault);
+#endif
   }
 
 

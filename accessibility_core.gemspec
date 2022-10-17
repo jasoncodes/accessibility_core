@@ -19,7 +19,6 @@ Originally extracted from the AXElements project.
   s.email       = 'markrada26@gmail.com'
   s.homepage    = 'https://github.com/AXElements/accessibility_core'
   s.licenses    = ['BSD-3-Clause']
-  s.has_rdoc    = 'yard'
 
   s.extensions  = [
                    'ext/accessibility/bridge/extconf.rb',

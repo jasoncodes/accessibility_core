@@ -16,8 +16,6 @@ static VALUE battery_charged;
 static VALUE battery_charging;
 static VALUE battery_discharging;
 
-static io_connect_t screen_connection = MACH_PORT_NULL;
-
 static VALUE rb_cRunningApp;
 static VALUE rb_cWorkspace;
 static VALUE rb_cProcInfo;
@@ -493,26 +491,8 @@ rb_screen_wake(VALUE self)
   if (!CGDisplayIsAsleep(CGMainDisplayID()))
     return Qtrue;
 
-  if (screen_connection == MACH_PORT_NULL) {
-    io_service_t service = IOServiceGetMatchingService(kIOMasterPortDefault, IOServiceMatching(kIOHIDSystemClass));
-    if (service != MACH_PORT_NULL) {
-      IOServiceOpen(service, mach_task_self(), kIOHIDParamConnectType, &screen_connection);
-      IOObjectRelease(service);
-    }
-    else { // give up
-      return Qfalse;
-    }
-  }
-
-  CGPoint      mouse = NSPointToCGPoint([NSEvent mouseLocation]);
-  IOGPoint     point = { mouse.x, mouse.y };
-  unsigned int flags = (unsigned int)[NSEvent modifierFlags];
-  NXEventData   data;
-
-  IOHIDPostEvent(screen_connection, NX_FLAGSCHANGED, point, &data, kNXEventDataVersion, flags, 0);
-
-  // spin rims while we wait for the screen to fully wake up
-  spin(1);
+  IOPMAssertionID assertionID;
+  IOPMAssertionDeclareUserActivity(CFSTR(""), kIOPMUserActiveLocal, &assertionID);
 
   return Qtrue;
 }

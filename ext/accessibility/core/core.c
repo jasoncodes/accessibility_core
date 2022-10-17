@@ -612,7 +612,7 @@ static
 VALUE
 rb_acore_post(VALUE self, VALUE events)
 {
-#if MAC_OS_X_VERSION_MIN_ALLOWED <= MAC_OS_X_VERSION_10_9
+#ifdef MAC_OS_X_VERSION_10_9
   rb_raise(rb_eRuntimeError, "Posting keyboard events is deprecated in 10.9 and later");
   return Qundef;
 #else
